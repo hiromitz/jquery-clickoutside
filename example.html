@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Example - bind clickOutside event plugin for jQuery</title>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+<script src="jquery.clickOutside.js"></script>
+<script>
+	$(function() {
+		$('.field').click(function() {
+			$('.result').html('Clicked field!');
+		}).clickOutside(function() {
+			$('.result').html('Clicked outside of field!');
+		});
+		
+		$('.unbind').click(function() {
+			$('.field').unbind('click').clickOutside('unbind');
+		});
+		
+		$('.field2').click(function() {
+			$('.result2').html('Clicked field!');
+		}).clickOutside(function() {
+			$('.result2').html('Clicked outside of field!');
+		});
+		
+		$('.unbind2').click(function() {
+			$('.field2').unbind('click').unbind('clickOutside');
+		});
+	});
+</script>
+<style>
+	.field, .field2 {
+		background: #ccc;
+		cursor: pointer;
+	}
+</style>
+</head>
+<body>
+<h1>Example - bind clickOutside event plugin for jQuery</h1>
+<div class="field">
+	<p>Here is the field that would be bind clickoutside event.</p>
+</div>
+<div class="result">Event result</div>
+<button class="unbind">Unbind Event</button>
+<hr />
+<div class="field2">
+	<p>Here is the field2 that would be bind clickoutside event.</p>
+</div>
+<div class="result2">Event result</div>
+<button class="unbind2">Unbind Event</button>
+</body>
+</html>
